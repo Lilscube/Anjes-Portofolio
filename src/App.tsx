@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, ExternalLink, Code, Palette, Zap, User, Briefcase, MessageCircle, ChevronDown, Star, Award, Users, Coffee } from 'lucide-react';
 import { motion } from "framer-motion";
+import ContactForm from "./components/ContactForm";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
+
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,9 +30,35 @@ function App() {
     setIsMenuOpen(false);
   };
 
+  const myProjects = [
+    {
+      name: "ReUseMart WEB",
+      image: "/public/reusemart_web.png",
+      github: "https://github.com/Lilscube/ReUseMart_WEB",
+      description: "ReUseMart Web is a modern web-based platform built using Next.js, Tailwind CSS, and MySQL. It enables users to donate, sell, and manage secondhand items through a clean and intuitive interface. This project focuses on user experience, admin control, and seamless integration with the backend database using REST APIs. The source code is maintained on GitHub for collaboration and version control",
+      stack: ["Next.js", "Tailwind CSS", "MySQL", "GitHub"]
+    },
+    {
+      name: "ReuseMart Mobile",
+      image: "/public/Landing 1.png",
+      github: "https://github.com/Lilscube/ReUseMart_Mobile",
+      description: "ReUseMart Mobile is a mobile application version of the ReUseMart platform, developed using Next.js, React Native, and MySQL. It offers mobile users the ability to browse, manage, and track donations or purchases of preloved items. The app is designed with responsive layouts and integrates smoothly with backend APIs. The entire project is hosted and managed via GitHub",
+      stack: ["React Native", "MySQL", "GitHub"]
+    },
+    {
+      name: "Laundry Licius",
+      image: "/public/Beranda.png",
+      github: "https://github.com/Lilscube/Laundry_web",
+      description: "Laundry Licius is a full-featured laundry service management web application developed with Figma, Laravel and MySQL. It allows customers to place orders, track laundry status, and manage their profile, while also providing admin features for staff and order management. This project utilizes Laravel’s MVC architecture and is version-controlled on GitHub for team collaboration",
+      stack: ["Figma", "Laravel", "MySQL", "GitHub"]
+    },
+  ];
+
   return (
+
     <div className="min-h-screen bg-gray-900 text-white relative overflow-x-hidden">
       {/* Animated Background */}
+      <ToastContainer />
       <div className="fixed inset-0 z-0">
         {/* Floating particles */}
         <div className="absolute inset-0">
@@ -303,9 +335,9 @@ function App() {
               <div className="space-y-4">
                 {[
                   { name: 'React & TypeScript', level: 80 },
-                  { name: 'Node.js & Laravel', level: 80 },
+                  { name: 'Next.js & Laravel', level: 80 },
                   { name: 'UI/UX Design', level: 85 },
-                  { name: 'Database Design', level: 75 }
+                  { name: 'Database Design', level: 60 }
                 ].map(({ name, level }, index) => (
                   <div key={index}>
                     <div className="flex justify-between mb-2">
@@ -339,7 +371,7 @@ function App() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((project) => (
+            {/* {[1, 2, 3,].map((project) => (
               <div key={project} className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
                 <div className="h-48 bg-gradient-to-br from-blue-600/20 to-teal-600/20 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent"></div>
@@ -362,7 +394,54 @@ function App() {
                   </div>
                 </div>
               </div>
+            ))} */}
+
+            {myProjects.map((project, index) => (
+              <div key={index} className="group bg-gray-800/50 backdrop-blur-sm rounded-2xl overflow-hidden border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105">
+                <div className="h-48 overflow-hidden relative">
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4">
+                    <h3 className="text-xl font-bold text-white">{project.name}</h3>
+                  </div>
+                </div>
+                <div className="p-4 text-gray-300 text-sm">
+                  {project.description}
+                </div>
+
+                <div className="px-4 pt-2 pb-4 space-y-2">
+                  {/* Stack Badges */}
+                  <div className="flex flex-wrap gap-2">
+                    {project.stack.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3 py-1 text-sm rounded-full bg-gray-700 text-cyan-300 border border-cyan-500/20"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* GitHub Link */}
+                  <div className="flex justify-end pt-2">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  </div>
+                </div>
+
+              </div>
             ))}
+
           </div>
         </div>
       </section >
@@ -412,7 +491,7 @@ function App() {
               </div>
             </div>
 
-            <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
+            {/* <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
               <form
                 action="https://formspree.io/f/xovwwpbq"
                 method="POST"
@@ -438,7 +517,7 @@ function App() {
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">Message</label>
                   <textarea
-                  name='message'
+                    name='message'
                     rows={4}
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300 resize-none"
                     placeholder="Tell me about your project..."
@@ -451,7 +530,11 @@ function App() {
                   Send Message
                 </button>
               </form>
-            </div>
+            </div> */}
+           
+              <ContactForm />
+            
+            
           </div>
         </div>
       </section >
