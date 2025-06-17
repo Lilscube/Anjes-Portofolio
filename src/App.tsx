@@ -33,21 +33,21 @@ function App() {
   const myProjects = [
     {
       name: "ReUseMart WEB",
-      image: "/public/reusemart_web.png",
+      image: "/public/reusemart.png",
       github: "https://github.com/Lilscube/ReUseMart_WEB",
       description: "ReUseMart Web is a modern web-based platform built using Next.js, Tailwind CSS, and MySQL. It enables users to donate, sell, and manage secondhand items through a clean and intuitive interface. This project focuses on user experience, admin control, and seamless integration with the backend database using REST APIs. The source code is maintained on GitHub for collaboration and version control",
       stack: ["Next.js", "Tailwind CSS", "MySQL", "GitHub"]
     },
     {
       name: "ReuseMart Mobile",
-      image: "/public/Landing 1.png",
+      image: "/public/landing.png",
       github: "https://github.com/Lilscube/ReUseMart_Mobile",
       description: "ReUseMart Mobile is a mobile application version of the ReUseMart platform, developed using Next.js, React Native, and MySQL. It offers mobile users the ability to browse, manage, and track donations or purchases of preloved items. The app is designed with responsive layouts and integrates smoothly with backend APIs. The entire project is hosted and managed via GitHub",
       stack: ["React Native", "MySQL", "GitHub"]
     },
     {
       name: "Laundry Licius",
-      image: "/public/Beranda.png",
+      image: "/public/beranda.png",
       github: "https://github.com/Lilscube/Laundry_web",
       description: "Laundry Licius is a full-featured laundry service management web application developed with Figma, Laravel and MySQL. It allows customers to place orders, track laundry status, and manage their profile, while also providing admin features for staff and order management. This project utilizes Laravel’s MVC architecture and is version-controlled on GitHub for team collaboration",
       stack: ["Figma", "Laravel", "MySQL", "GitHub"]
