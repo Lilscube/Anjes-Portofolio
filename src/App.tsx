@@ -47,7 +47,7 @@ function App() {
     },
     {
       name: "Laundry Licius",
-      image: "/beranda.png",
+      image: "/beranda2.png",
       github: "https://github.com/Lilscube/Laundry_web",
       description: "Laundry Licius is a full-featured laundry service management web application developed with Figma, Laravel and MySQL. It allows customers to place orders, track laundry status, and manage their profile, while also providing admin features for staff and order management. This project utilizes Laravel’s MVC architecture and is version-controlled on GitHub for team collaboration",
       stack: ["Figma", "Laravel", "MySQL", "GitHub"]
